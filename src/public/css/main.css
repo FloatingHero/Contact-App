@@ -1,3 +1,7 @@
+:root {
+    --primary_color: #1A1E21;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;

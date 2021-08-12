@@ -1,5 +1,5 @@
 .container {
-    min-height: 75vh;
+    min-height: 80vh;
 }
 
 .container, .register__form__group {
@@ -9,7 +9,6 @@
     align-items: center;
 }
 
-
 .register__form__group {
     gap: 1em;
     margin: 1em 0;
@@ -17,8 +16,25 @@
 
 .register__form__group__input {
     width: 380px;
-    border: 1px solid #000;
+    border: 1px solid var(--primary_color);
     padding: 5px 5px;
     border-radius: 2em;
     outline: none;
+    text-align: center;
+}
+
+.register__form__group__submit {
+    border: 1px solid var(--primary_color);
+    width: 190px;
+    padding: 5px 0;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    height: 40px;
+    transition: background 0.3s ease;
+}
+
+.register__form__group__submit:hover {
+    background-color: var(--primary_color);
+    color: #fff;
 }
