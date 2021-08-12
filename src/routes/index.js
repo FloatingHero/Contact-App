@@ -14,4 +14,10 @@ router.get('/formulario-registro', (req, res) => {
     });
 });
 
+router.get('/formulario-login', (req, res) => {
+    res.render('login_form', {
+        title: 'Inicio de sesión'
+    });
+});
+
 export default router;

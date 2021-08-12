@@ -2,19 +2,19 @@
     min-height: 80vh;
 }
 
-.container, .register__form__group {
+.container, .login__form__group {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.register__form__group {
+.login__form__group {
     gap: 1em;
     margin: 1em 0;
 }
 
-.register__form__group__input {
+.login__form__group__input {
     width: 380px;
     border: 1px solid var(--primary_color);
     padding: 5px 5px;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.register__form__group__submit {
+.login__form__group__submit {
     border: 1px solid var(--primary_color);
     width: 190px;
     padding: 5px 0;
@@ -34,7 +34,7 @@
     transition: background 0.3s ease;
 }
 
-.register__form__group__submit:hover {
+.login__form__group__submit:hover {
     background-color: var(--primary_color);
     color: #fff;
 }
