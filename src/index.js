@@ -4,6 +4,7 @@ import path from 'path';
 import hbs from 'express-handlebars';
 import morgan from 'morgan';
 import router from './routes/index';
+import pool from './database/db';
 
 const app = express();
 dotenv.config();
