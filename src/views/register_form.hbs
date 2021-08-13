@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/register_form.css">
 
 <div class="container">
-    <form action="" class="register__form">
+    <form action="/register" class="register__form" method="post">
         <div class="register__form__group">
             <label for="username">Nombre de usuario</label>
             <input type="text" name="username" id="username" placeholder="Ej.: FloatingHero"
@@ -24,7 +24,7 @@
             <small>Mínimo 8 caracteres</small>
         </div>
         <div class="register__form__group">
-            <button class="register__form__group__submit">
+            <button type="submit" class="register__form__group__submit">
                 Registrarse
             </button>
 

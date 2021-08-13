@@ -1,4 +1,5 @@
 import { Router } from "express";
+import RegisterController from '../controllers/RegisterController';
 
 const router = Router();
 
@@ -8,11 +9,8 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/formulario-registro', (req, res) => {
-    res.render('register_form', {
-        title: 'Registro'
-    });
-});
+router.get('/formulario-registro', RegisterController.index);
+router.post('/register', RegisterController.register);
 
 router.get('/formulario-login', (req, res) => {
     res.render('login_form', {
