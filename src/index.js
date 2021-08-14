@@ -3,8 +3,12 @@ import dotenv from 'dotenv';
 import path from 'path';
 import hbs from 'express-handlebars';
 import morgan from 'morgan';
-import router from './routes/index';
+import router from './routes/index.routes';
 import pool from './database/db';
+import flash from 'connect-flash';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import MySQLStore from 'express-mysql-session';
 
 const app = express();
 dotenv.config();
@@ -28,6 +32,25 @@ app.use(
         extended: true
     })
 );
+app.use(cookieParser(process.env.APP_SECRET));
+app.use(session({
+    secret: process.env.APP_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore({
+        database: process.env.DB_NAME,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        hot: process.env.DB_HOST
+    }),
+}));
+app.use(express.json());
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.errors = req.flash('errors');
+    res.locals.error_message = req.flash('error_message');
+    next();
+})
 
 //*static files
 app.use(express.static(path.join(__dirname, 'public')));

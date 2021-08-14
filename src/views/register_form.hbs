@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/css/register_form.css">
 
 <div class="container">
+
+
     <form action="/register" class="register__form" method="post">
         <div class="register__form__group">
             <label for="username">Nombre de usuario</label>
@@ -31,5 +33,34 @@
             <span>¿Ya tienes cuenta? Inicia sesión <a href="/formulario-login">aquí</a></span>
 
         </div>
+
+        {{#if errors}}
+        <div class="errors">
+
+            <ul>
+                {{#each errors}}
+                <li>
+                    {{this.msg}}
+                </li>
+                {{/each}}
+            </ul>
+
+
+
+        </div>
+        {{/if}}
+
+        {{#if error_message}}
+        <div class="errors">
+
+            <span>{{error_message}}</span>
+
+
+        </div>
+        {{/if}}
+
+
+
+
     </form>
 </div>
