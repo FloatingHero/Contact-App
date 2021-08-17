@@ -1,6 +1,8 @@
 import { Router } from "express";
 import RegisterController from "../controllers/RegisterController";
 import registerSchema from "../validations/register_validations";
+import initPassport from "../lib/passport";
+import passport from "passport";
 
 const router = Router();
 
@@ -16,8 +18,9 @@ router.get('/formulario-registro', (req, res) => {
     })
 });
 
-
 router.post('/register', registerSchema, RegisterController.register);
+
+initPassport();
 
 router.get('/formulario-login', (req, res) => {
     res.render('login_form', {
@@ -25,4 +28,13 @@ router.get('/formulario-login', (req, res) => {
     });
 });
 
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/perfil',
+    failureRedirect: '/formulario-login',
+    failureFlash: 'Something goes wrong...',
+}));
+
 export default router;
+
+//email: floatinghero@gmail.com
+//pass: Al9595ninetyfive

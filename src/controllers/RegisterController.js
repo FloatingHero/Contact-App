@@ -11,7 +11,7 @@ class RegisterController {
         });
     }
 
- 
+
     register(req, res) {
 
         const errors = validationResult(req);
@@ -21,10 +21,10 @@ class RegisterController {
             res.redirect('back');
         } else {
 
-            const SQL = `SELECT COUNT(users.email) WHERE users.email = ${pool.escape(req.body.email)}`;
+            const SQL = `SELECT email FROM users WHERE email = ${pool.escape(req.body.email)}`;
 
-            pool.query(SQL, (err) => {
-                if (SQL.length > 0) {
+            pool.query(SQL, (err, result) => {
+                if (result.length !== 0) {
                     req.flash('error_message', 'El email ofrecido ya está registrado. Vuelva a intentarlo.')
                     res.redirect('back');
                 } else {

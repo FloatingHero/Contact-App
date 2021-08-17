@@ -4,11 +4,13 @@ import path from 'path';
 import hbs from 'express-handlebars';
 import morgan from 'morgan';
 import router from './routes/index.routes';
+import authenticationRoutes from './routes/authentication.routes';
 import pool from './database/db';
 import flash from 'connect-flash';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import MySQLStore from 'express-mysql-session';
+import passport from 'passport';
 
 const app = express();
 dotenv.config();
@@ -44,7 +46,11 @@ app.use(session({
         hot: process.env.DB_HOST
     }),
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.json());
+
+//*variables globales
 app.use(flash());
 app.use((req, res, next) => {
     res.locals.errors = req.flash('errors');
@@ -57,6 +63,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //*routes
 app.use(router);
+app.use(authenticationRoutes);
 
 
 //* server listener

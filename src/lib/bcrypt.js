@@ -11,6 +11,15 @@ class Hash {
         }
     }
 
+    matchPass(password, hashedPassword) {
+        try {
+            return bcrypt.compareSync(password, hashedPassword);
+        } catch (err) {
+            throw err;
+        }
+
+    }
+
 }
 
 export default new Hash;
