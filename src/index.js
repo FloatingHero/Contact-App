@@ -55,6 +55,7 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.errors = req.flash('errors');
     res.locals.error_message = req.flash('error_message');
+    res.locals.user = req.user
     next();
 })
 

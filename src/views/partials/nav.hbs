@@ -16,8 +16,16 @@
 
     <div id="navbar__list">
         <a href="#" class="navbar__list__item">Inicio</a></li>
+        
+    {{#if user}}
+
+        <a href="" class="navbar__list__item">{{user.username}}</a>
+
+    {{else}}
         <a href="/formulario-registro" class="navbar__list__item">Registro</a></li>
         <a href="/formulario-login" class="navbar__list__item">Login</a></li>
+    {{/if}}
+    
     </div>
 </nav>
 
