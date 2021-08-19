@@ -19,32 +19,32 @@ dotenv.config();
 app.set('port', process.env.APP_PORT);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',
-    hbs({
-        defaultLayout: 'main',
-        layoutsDir: path.join(app.get('views'), 'layout'),
-        partialsDir: path.join(app.get('views'), 'partials'),
-        extname: '.hbs'
-    }));
+	hbs({
+		defaultLayout: 'main',
+		layoutsDir: path.join(app.get('views'), 'layout'),
+		partialsDir: path.join(app.get('views'), 'partials'),
+		extname: '.hbs'
+	}));
 app.set('view engine', '.hbs');
 
 //*middleware
 app.use(morgan('dev'));
 app.use(
-    express.urlencoded({
-        extended: true
-    })
+	express.urlencoded({
+		extended: true
+	})
 );
 app.use(cookieParser(process.env.APP_SECRET));
 app.use(session({
-    secret: process.env.APP_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: new MySQLStore({
-        database: process.env.DB_NAME,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        hot: process.env.DB_HOST
-    }),
+	secret: process.env.APP_SECRET,
+	resave: false,
+	saveUninitialized: false,
+	store: new MySQLStore({
+		database: process.env.DB_NAME,
+		user: process.env.DB_USER,
+		password: process.env.DB_PASSWORD,
+		hot: process.env.DB_HOST
+	}),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -53,11 +53,11 @@ app.use(express.json());
 //*variables globales
 app.use(flash());
 app.use((req, res, next) => {
-    res.locals.errors = req.flash('errors');
-    res.locals.error_message = req.flash('error_message');
-    res.locals.user = req.user
-    next();
-})
+	res.locals.errors = req.flash('errors');
+	res.locals.error_message = req.flash('error_message');
+	res.locals.user = req.user;
+	next();
+});
 
 //*static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -69,5 +69,5 @@ app.use(authenticationRoutes);
 
 //* server listener
 app.listen(app.get('port'), () => {
-    console.log(`Servidor en marcha en el puerto ${app.get('port')}`);
+	console.log(`Servidor en marcha en el puerto ${app.get('port')}`);
 });

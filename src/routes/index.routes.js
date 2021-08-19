@@ -1,21 +1,21 @@
-import { Router } from "express";
-import RegisterController from "../controllers/RegisterController";
-import registerSchema from "../validations/register_validations";
-import initPassport from "../lib/passport";
-import passport from "passport";
+import { Router } from 'express';
+import RegisterController from '../controllers/RegisterController';
+import registerSchema from '../validations/register_validations';
+import initPassport from '../lib/passport';
+import AuthController from '../controllers/AuthController';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.render('home', {
-        title: 'Inicio',
-    });
+	res.render('home', {
+		title: 'Inicio',
+	});
 });
 
 router.get('/formulario-registro', (req, res) => {
-    res.render('register_form', {
-        title: 'Registro'
-    })
+	res.render('register_form', {
+		title: 'Registro'
+	});
 });
 
 router.post('/register', registerSchema, RegisterController.register);
@@ -23,16 +23,12 @@ router.post('/register', registerSchema, RegisterController.register);
 initPassport();
 
 router.get('/formulario-login', (req, res) => {
-    res.render('login_form', {
-        title: 'Inicio de sesión'
-    });
+	res.render('login_form', {
+		title: 'Inicio de sesión'
+	});
 });
 
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/perfil',
-    failureRedirect: '/formulario-login',
-    failureFlash: 'Something goes wrong...',
-}));
+router.post('/login', AuthController.login);
 
 export default router;
 
