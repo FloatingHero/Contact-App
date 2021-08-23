@@ -11,7 +11,6 @@ class RegisterController {
 		});
 	}
 
-
 	register(req, res) {
 
 		const errors = validationResult(req);
@@ -42,9 +41,6 @@ class RegisterController {
 					res.redirect('/formulario-login');
 				}
 			});
-
-
-
 		}
 	}
 }

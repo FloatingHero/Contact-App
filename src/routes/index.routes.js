@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import RegisterController from '../controllers/RegisterController';
 import registerSchema from '../validations/register_validations';
+import loginSchema from '../validations/login_validations.js';
 import initPassport from '../lib/passport';
 import AuthController from '../controllers/AuthController';
 
@@ -28,9 +29,6 @@ router.get('/formulario-login', (req, res) => {
 	});
 });
 
-router.post('/login', AuthController.login);
+router.post('/login', loginSchema, AuthController.login);
 
 export default router;
-
-//email: floatinghero@gmail.com
-//pass: Al9595ninetyfive

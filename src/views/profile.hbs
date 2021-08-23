@@ -1,9 +1,26 @@
+<link rel="stylesheet" href="/css/profile.css" />
+
 <div class="container">
-  <h1>
-    Bienvenido
-    {{user.username}}
-  </h1>
-  <form action="/logout" method="post">
-    <button type="submit">Cerrar sesión</button>
-  </form>
+  {{#if message}}
+    <div class="container__error__message">
+      <h2>
+        {{message}}
+      </h2>
+    </div>
+  {{/if}}
+
+  {{#each contacts}}
+    <div class="contact">
+      <h1>
+        {{this.name}}
+      </h1>
+      <h3>
+        {{this.email}}
+      </h3>
+      <h3>
+        {{this.phone_number}}
+      </h3>
+    </div>
+  {{/each}}
+
 </div>

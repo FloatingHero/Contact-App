@@ -15,10 +15,12 @@
 
 
     <div id="navbar__list">
-        <a href="#" class="navbar__list__item">Inicio</a></li>
+        <a href="/" class="navbar__list__item">Inicio</a></li>
+        
 
         {{#if user}}
 
+            <a href="/contactos" class="navbar__list__item">Contactos</a>
             <a href="javascript:void(0)" class="navbar__list__item" id="username">{{user.username}}</a>
             <div id="navbar__list__item__sublist">
                 <li class="navbar__list__item__sublist__item">

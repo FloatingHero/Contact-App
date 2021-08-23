@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/css/contact_form.css" />
+
+<div class="container">
+  <form action="/add_contact" method="post">
+    <div class="contact__form__group">
+      <label for="contact_name">
+        Nombre
+      </label>
+      <input
+        type="text"
+        name="contact_name"
+        id="contact_name"
+        class="contact__form__group__input"
+        placeholder="Ej: Antonio"
+      />
+    </div>
+    <div class="contact__form__group">
+      <label for="contact_email">
+        Email
+      </label>
+      <input
+        type="email"
+        name="contact_email"
+        id="contact_email"
+        class="contact__form__group__input"
+        placeholder="Ej: ejemplo@dominio.com"
+      />
+    </div>
+    <div class="contact__form__group">
+      <label for="contact_number_phone">
+        Nº de teléfono
+      </label>
+      <input
+        type="tel"
+        name="contact_number_phone"
+        id="contact_number_phone"
+        class="contact__form__group__input"
+        placeholder="666333999"
+      />
+    </div>
+    <div class="contact__form__group">
+      <button type="submit" class="contact__form__group__submit">
+        Añadir contacto
+      </button>
+    </div>
+  </form>
+
+  {{#if errors}}
+    <div class="errors">
+      <ul>
+        {{#each errors}}
+          <li>
+            {{this.msg}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+</div>
