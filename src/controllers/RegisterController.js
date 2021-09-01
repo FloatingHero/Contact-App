@@ -1,6 +1,7 @@
 import Hash from '../lib/bcrypt';
 import pool from '../database/db';
 import { validationResult } from 'express-validator';
+import initPassport from '../lib/passport';
 
 
 class RegisterController {
@@ -11,12 +12,14 @@ class RegisterController {
 		});
 	}
 
-	register(req, res) {
+	register(req, res, next) {
 
 		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
-			req.flash('errors', errors.array());
+			req.flash('errors', errors.array({
+				onlyFirstError: true
+			}));
 			res.redirect('back');
 		} else {
 
@@ -34,11 +37,20 @@ class RegisterController {
 							if (err) {
 								console.error(err);
 							} else {
-								console.log('User registered correctly.');
+								initPassport();
 							}
 						});
 
-					res.redirect('/formulario-login');
+
+
+					req.login([req.body.email, req.body.password], (err) => {
+						if (err) {
+							return next(err);
+						} else {
+							res.redirect('/perfil');
+						}
+					});
+
 				}
 			});
 		}

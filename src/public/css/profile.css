@@ -6,12 +6,17 @@
     margin: 1em 1em;
 }
 
-.container__error__message {
+.container__error__message, .container__success__message {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     grid-column: span 4;
+}
+
+.container__success__message {
+    border: 2px solid #004d1a;
+    background-color: #66ff99;
 }
 
 .contact {
@@ -21,6 +26,28 @@
     box-shadow: 4px 4px 3px rgba(26, 30, 33, .6);
     border-radius: 5px;
     flex-direction: column;
+}
+
+.contact button {
+    background: transparent;
+    height: 0;
+    width: 0;
+    border: transparent;
+}
+
+.contact form {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
+.material-icons {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+    margin: 0 5px;
 }
 
 @media screen and (min-width: 760px) {

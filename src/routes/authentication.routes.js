@@ -9,7 +9,7 @@ router.get('/perfil', AuthController.index);
 
 router.get('/contactos', ContactController.index);
 router.post('/add_contact', contactSchema, ContactController.add);
-
+router.post('/delete_contact', ContactController.delete);
 router.post('/logout', AuthController.logout);
 
 export default router;

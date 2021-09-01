@@ -39,6 +39,20 @@ class ContactController {
 		}
 	}
 
+	delete(req, res) {
+		const SQL = `DELETE FROM contacts WHERE id = ${req.body.contact__id}`;
+
+		pool.query(SQL, (err) => {
+			if (err) {
+				throw err;
+			} else {
+				req.flash('success_message', 'El contacto ha sido eliminado con éxito.');
+				res.redirect('back');
+			}
+		});
+
+	}
+
 
 
 }

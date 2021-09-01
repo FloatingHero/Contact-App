@@ -10,34 +10,30 @@
         <span class="material-icons" id="navbar__icon">
             reorder
         </span>
-
     </div>
 
 
     <div id="navbar__list">
-        <a href="/" class="navbar__list__item">Inicio</a></li>
-        
+        <a href="/" class="navbar__list__item">Inicio</a>
 
         {{#if user}}
 
             <a href="/contactos" class="navbar__list__item">Contactos</a>
-            <a href="javascript:void(0)" class="navbar__list__item" id="username">{{user.username}}</a>
+            <a href="javascript:void(0)" class="navbar__list__item" id="username">{{getFirstLetter user.username}}</a>
             <div id="navbar__list__item__sublist">
-                <li class="navbar__list__item__sublist__item">
-                    <a href="/perfil">Perfil</a>
-                </li>
-                <li class="navbar__list__item__sublist__item">
+                <a href="/perfil" class="navbar__list__item__sublist__item">Perfil</a>
+                <div class="navbar__list__item__sublist__item">
                     <form action="/logout" method="post" class="navbar__list__sublist__item__form">
                         <button type="submit" class="navbar__list__sublist__item__form__submit">
                             Cerrar sesión
                         </button>
                     </form>
-                </li>
+                </div>
             </div>
 
         {{else}}
-            <a href="/formulario-registro" class="navbar__list__item">Registro</a></li>
-            <a href="/formulario-login" class="navbar__list__item">Login</a></li>
+            <a href="/formulario-registro" class="navbar__list__item">Registro</a>
+            <a href="/formulario-login" class="navbar__list__item">Login</a>
         {{/if}}
 
     </div>

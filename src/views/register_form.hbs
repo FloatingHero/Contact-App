@@ -1,66 +1,78 @@
-<link rel="stylesheet" href="/css/register_form.css">
+<link rel='stylesheet' href='/css/register_form.css' />
 
-<div class="container">
+<div class='container'>
 
+	<form action='/register' class='register__form' method='post'>
+		<div class='register__form__group'>
+			<label for='username'>Nombre de usuario</label>
+			<input
+				type='text'
+				name='username'
+				id='username'
+				placeholder='Ej.: FloatingHero'
+				class='register__form__group__input'
+			/>
+		</div>
+		<div class='register__form__group'>
+			<label for='email'>Email</label>
+			<input
+				type='email'
+				name='email'
+				id='email'
+				placeholder='Ej.: ejemplo@dominio.com'
+				class='register__form__group__input'
+			/>
+		</div>
+		<div class='register__form__group'>
+			<label for='password'>Contraseña</label>
+			<input
+				type='password'
+				name='password'
+				id='password'
+				placeholder='********'
+				class='register__form__group__input'
+			/>
+		</div>
+		<div class='register__form__group'>
+			<label for='confirm__password'>Confirme su contraseña</label>
+			<input
+				type='password'
+				name='confirm__password'
+				id='confirm__password'
+				placeholder='********'
+				class='register__form__group__input'
+			/>
+			<small>Mínimo 8 caracteres</small>
+		</div>
+		<div class='register__form__group'>
+			<button type='submit' class='register__form__group__submit'>
+				Registrarse
+			</button>
 
-    <form action="/register" class="register__form" method="post">
-        <div class="register__form__group">
-            <label for="username">Nombre de usuario</label>
-            <input type="text" name="username" id="username" placeholder="Ej.: FloatingHero"
-                class="register__form__group__input">
-        </div>
-        <div class="register__form__group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Ej.: ejemplo@dominio.com"
-                class="register__form__group__input">
-        </div>
-        <div class="register__form__group">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" placeholder="********"
-                class="register__form__group__input">
-        </div>
-        <div class="register__form__group">
-            <label for="confirm__password">Confirme su contraseña</label>
-            <input type="password" name="confirm__password" id="confirm__password" placeholder="********"
-                class="register__form__group__input">
-            <small>Mínimo 8 caracteres</small>
-        </div>
-        <div class="register__form__group">
-            <button type="submit" class="register__form__group__submit">
-                Registrarse
-            </button>
+			<span>¿Ya tienes cuenta? Inicia sesión
+				<a href='/formulario-login'>aquí</a></span>
 
-            <span>¿Ya tienes cuenta? Inicia sesión <a href="/formulario-login">aquí</a></span>
+		</div>
 
-        </div>
+		{{#if errors}}
+			<div class='errors'>
 
-        {{#if errors}}
-        <div class="errors">
+				<ul>
+					{{#each errors}}
+						<li>
+							{{this.msg}}
+						</li>
+					{{/each}}
+				</ul>
 
-            <ul>
-                {{#each errors}}
-                <li>
-                    {{this.msg}}
-                </li>
-                {{/each}}
-            </ul>
+			</div>
+		{{/if}}
 
+		{{#if error_message}}
+			<div class='errors'>
+				<span>{{error_message}}</span>
+			</div>
+		{{/if}}
 
-
-        </div>
-        {{/if}}
-
-        {{#if error_message}}
-        <div class="errors">
-
-            <span>{{error_message}}</span>
-
-
-        </div>
-        {{/if}}
-
-
-
-
-    </form>
+	</form>
 </div>

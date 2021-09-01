@@ -23,6 +23,10 @@
     text-align: center;
 }
 
+#username {
+    margin-right: 0;
+}
+
 .register__form__group__submit {
     border: 1px solid var(--primary_color);
     width: 190px;

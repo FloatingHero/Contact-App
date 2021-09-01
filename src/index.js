@@ -23,7 +23,12 @@ app.engine('.hbs',
 		defaultLayout: 'main',
 		layoutsDir: path.join(app.get('views'), 'layout'),
 		partialsDir: path.join(app.get('views'), 'partials'),
-		extname: '.hbs'
+		extname: '.hbs',
+		helpers: {
+			getFirstLetter: (string) => {
+				return string.charAt(0);
+			}
+		}
 	}));
 app.set('view engine', '.hbs');
 
@@ -55,6 +60,7 @@ app.use(flash());
 app.use((req, res, next) => {
 	res.locals.errors = req.flash('errors');
 	res.locals.error_message = req.flash('error_message');
+	res.locals.success_message = req.flash('success_message');
 	res.locals.user = req.user;
 	next();
 });

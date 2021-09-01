@@ -7,7 +7,7 @@ class AuthController {
 
 		let message = '';
 
-		pool.query('SELECT * FROM contacts', (err, result) => {
+		pool.query(`SELECT * FROM contacts WHERE user_id = ${pool.escape(req.user.id)}`, (err, result) => {
 			if (err) {
 				throw err;
 			} else {
@@ -20,7 +20,6 @@ class AuthController {
 					message: message,
 					contacts: result
 				});
-
 			}
 		});
 
@@ -28,7 +27,6 @@ class AuthController {
 	}
 
 	login(req, res, next) {
-
 		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
@@ -39,6 +37,7 @@ class AuthController {
 			res.redirect('back');
 
 		} else {
+
 			passport.authenticate('local', {
 				successRedirect: '/perfil',
 				failureRedirect: '/formulario-login',
