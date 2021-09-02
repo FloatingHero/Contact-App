@@ -1,0 +1,47 @@
+<link rel='stylesheet' href='/css/edit_form.css' />
+
+<div class='container'>
+	<form action=''>
+		<div class='edit__form__group'>
+			<label for='contact_name'>
+				Nombre
+			</label>
+			<input
+				type='text'
+				name='contact_name'
+				id='contact_name'
+				class='edit__form__group__input'
+				value='{{contact.name}}'
+			/>
+		</div>
+		<div class='edit__form__group'>
+			<label for='contact_email'>
+				Email
+			</label>
+			<input
+				type='email'
+				name='contact_email'
+				id='contact_email'
+				class='edit__form__group__input'
+				value='{{contact.email}}'
+			/>
+		</div>
+		<div class='edit__form__group'>
+			<label for='contact_number_phone'>
+				Número de teléfono
+			</label>
+			<input
+				type='tel'
+				name='contact_number_phone'
+				id='contact_number_phone'
+				class='edit__form__group__input'
+				value='{{contact.phone_number}}'
+			/>
+		</div>
+		<div class='edit__form__group'>
+			<button type='submit' class='edit__form__group__submit'>
+				Actualizar
+			</button>
+		</div>
+	</form>
+</div>

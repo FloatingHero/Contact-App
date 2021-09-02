@@ -41,8 +41,6 @@ class RegisterController {
 							}
 						});
 
-
-
 					req.login([req.body.email, req.body.password], (err) => {
 						if (err) {
 							return next(err);

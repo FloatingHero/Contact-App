@@ -12,14 +12,13 @@
         </span>
     </div>
 
-
     <div id="navbar__list">
         <a href="/" class="navbar__list__item">Inicio</a>
 
         {{#if user}}
 
             <a href="/contactos" class="navbar__list__item">Contactos</a>
-            <a href="javascript:void(0)" class="navbar__list__item" id="username">{{getFirstLetter user.username}}</a>
+            <a href="javascript:void(0)" class="navbar__list__item" id="profile_image">{{getFirstLetter user.username}}</a>
             <div id="navbar__list__item__sublist">
                 <a href="/perfil" class="navbar__list__item__sublist__item">Perfil</a>
                 <div class="navbar__list__item__sublist__item">

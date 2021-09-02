@@ -5,12 +5,13 @@ import hbs from 'express-handlebars';
 import morgan from 'morgan';
 import router from './routes/index.routes';
 import authenticationRoutes from './routes/authentication.routes';
-import pool from './database/db';
+import { pool } from './database/db';
 import flash from 'connect-flash';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import MySQLStore from 'express-mysql-session';
 import passport from 'passport';
+import favicon from 'serve-favicon';
 
 const app = express();
 dotenv.config();
@@ -27,7 +28,7 @@ app.engine('.hbs',
 		helpers: {
 			getFirstLetter: (string) => {
 				return string.charAt(0);
-			}
+			},
 		}
 	}));
 app.set('view engine', '.hbs');
@@ -67,6 +68,7 @@ app.use((req, res, next) => {
 
 //*static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public/img', 'icon.png')));
 
 //*routes
 app.use(router);
