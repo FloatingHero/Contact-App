@@ -35,9 +35,6 @@ class ContactController {
 				}
 
 			});
-
-
-
 		}
 	}
 
@@ -52,7 +49,6 @@ class ContactController {
 				res.redirect('back');
 			}
 		});
-
 	}
 
 	edit(req, res) {
@@ -66,15 +62,10 @@ class ContactController {
 			if (err) {
 				throw err;
 			}
-
 			req.flash('success_message', 'El contacto ha sido actualizado exitósamente.');
 			res.redirect('/perfil');
-
 		});
-
-
 	}
-
 }
 
 export default new ContactController;
