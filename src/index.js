@@ -49,7 +49,7 @@ app.use(session({
 		database: process.env.DB_NAME,
 		user: process.env.DB_USER,
 		password: process.env.DB_PASSWORD,
-		hot: process.env.DB_HOST
+		host: process.env.DB_HOST
 	}),
 }));
 app.use(passport.initialize());
@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 
 //*static files
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public/img', 'icon.png')));
+app.use(favicon(path.join(__dirname, 'public/img', 'save-contact-767497.png')));
 
 //*routes
 app.use(router);

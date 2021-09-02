@@ -27,6 +27,7 @@ router.get('/editar-contacto/:contact', (req, res) => {
 	}
 	);
 });
+router.post('/edit-contact', ContactController.edit);
 router.post('/logout', AuthController.logout);
 
 export default router;

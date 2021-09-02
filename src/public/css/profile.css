@@ -6,7 +6,7 @@
     margin: 1em 1em;
 }
 
-.container__error__message, .container__success__message {
+.container__error__message, #container__success__message {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,18 +14,25 @@
     grid-column: span 4;
 }
 
-.container__success__message {
+#container__success__message {
     border: 2px solid #004d1a;
     background-color: #66ff99;
+    border-radius: 2em;
 }
 
 .contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4;
     box-shadow: 4px 4px 3px rgba(26, 30, 33, .6);
     border-radius: 5px;
     flex-direction: column;
+}
+
+.contact__name, .contact__email, .contact__number__phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact button {
@@ -43,7 +50,6 @@
 }
 
 .material-icons {
-    width: 100%;
     display: flex;
     cursor: pointer;
     justify-content: flex-end;
@@ -57,13 +63,16 @@
     display: flex;
     cursor: pointer;
     justify-content: flex-end;
-    margin: 0 5px;
-    top: 1.5em;
+    top: 0;
+    right: 1.5em;
     position: relative;
 }
 
 @media screen and (min-width: 760px) {
     .container {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .contact {
+        grid-column: span 1;
     }
 }

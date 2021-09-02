@@ -10,7 +10,10 @@
 	{{/if}}
 
 	{{#if success_message}}
-		<div class='container__success__message'>
+		<div id='container__success__message'>
+			<span class='material-icons' id='close'>
+				close
+			</span>
 			<h2>
 				{{success_message}}
 			</h2>
@@ -19,31 +22,45 @@
 
 	{{#each contacts}}
 		<div class='contact'>
-			<form action='/delete_contact' method='post'>
-				<input type='hidden' name='contact__id' value='{{this.id}}' />
-				<button type='submit'>
+			<div class='contact__forms'>
+				<form action='/delete_contact' method='post'>
+					<input
+						type='hidden'
+						name='contact__id'
+						value='{{this.id}}'
+					/>
+					<button type='submit'>
+						<span class='material-icons'>
+							close
+						</span>
+					</button>
+				</form>
+				<a href='/editar-contacto/{{this.id}}' class='edit'>
 					<span class='material-icons'>
-						close
+						edit
 					</span>
-				</button>
-			</form>
-			<a href='/editar-contacto/{{this.id}}' class='edit'>
-				<span class='material-icons'>
-					edit
-				</span>
-			</a>
+				</a>
+			</div>
 
-			<h1>
-				{{this.name}}
-			</h1>
-			<h3>
-				{{this.email}}
-			</h3>
-			<h3>
-				{{this.phone_number}}
-			</h3>
+			<div class='contact__name'>
+				<h1>
+					{{this.name}}
+				</h1>
+			</div>
+			<div class='contact__email'>
+				<h3>
+					{{this.email}}
+				</h3>
+			</div>
+			<div class='contact__number__phone'>
+				<h3>
+					{{this.phone_number}}
+				</h3>
+			</div>
 
 		</div>
 	{{/each}}
 
 </div>
+
+<script src='/js/dispose.js'></script>

@@ -1,7 +1,19 @@
 <link rel='stylesheet' href='/css/edit_form.css' />
 
 <div class='container'>
-	<form action=''>
+	<form action='/edit-contact' method='post'>
+		<div class='edit__form__group'>
+			<label for='contact_id'>ID</label>
+			<input
+				type='number'
+				name='contact_id'
+				id='contact_id'
+				class='edit__form__group__input'
+				value='{{contact.id}}'
+				readonly
+				title='¡Este campo no se puede modificar!'
+			/>
+		</div>
 		<div class='edit__form__group'>
 			<label for='contact_name'>
 				Nombre

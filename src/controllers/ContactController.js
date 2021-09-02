@@ -29,12 +29,14 @@ class ContactController {
 			pool.query(SQL, (err) => {
 				if (err) {
 					throw err;
+				} else {
+					req.flash('success_message', 'El contacto se ha registrado exitósamente');
+					res.redirect('/perfil');
 				}
-				console.log('Contact added successfully');
 
 			});
 
-			res.redirect('back');
+
 
 		}
 	}
@@ -53,7 +55,25 @@ class ContactController {
 
 	}
 
+	edit(req, res) {
+		const SQL = `UPDATE contacts 
+		SET name = ${pool.escape(req.body.contact_name)},
+		email = ${pool.escape(req.body.contact_email)},
+		phone_number = ${pool.escape(req.body.contact_number_phone)}
+		WHERE id = ${pool.escape(req.body.contact_id)}`;
 
+		pool.query(SQL, (err) => {
+			if (err) {
+				throw err;
+			}
+
+			req.flash('success_message', 'El contacto ha sido actualizado exitósamente.');
+			res.redirect('/perfil');
+
+		});
+
+
+	}
 
 }
 

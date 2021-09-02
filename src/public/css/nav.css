@@ -48,7 +48,11 @@
     height: auto;
 }
 
-.navbar__list__item__sublist__item a {
+#profile_image {
+    display: none;
+}
+
+.navbar__list__item__sublist__item  {
     color: #fff;
     text-decoration: none;
 }
@@ -108,6 +112,9 @@
     }
 
     #profile_image {
+        display: inline;
+        visibility: visible;
+        opacity: 1;
         width: 32px;
         height: 32px;
         border-radius: 50%;
@@ -128,6 +135,10 @@
         right: 5px;
         top: 3em;
         border-radius: 10px;
+    }
+
+    #navbar__list__item__sublist.hide__sublist {
+        display: none;
     }
 
     #navbar__list__item__sublist.toggle__sublist {

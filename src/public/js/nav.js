@@ -8,8 +8,6 @@ icon.addEventListener('click', () => {
 });
 
 profile_image.addEventListener('click', () => {
+	sublist.classList.remove('hide__sublist');
 	sublist.classList.toggle('toggle__sublist');
 });
-
-
-
