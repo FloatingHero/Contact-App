@@ -1,43 +1,50 @@
 {
-  "name": "contact-app",
-  "version": "1.0.0",
-  "description": "app where u can store your favourites app",
-  "main": "index.js",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.3",
-    "express-mysql-session": "^2.1.6",
-    "express-session": "^1.17.2",
-    "express-validator": "^6.12.1",
-    "mysql": "^2.18.1",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "serve-favicon": "^2.5.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/node": "^7.14.9",
-    "@babel/preset-env": "^7.15.0",
-    "eslint": "^7.32.0",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
-  },
-  "scripts": {
-    "start": "babel-node src/index.js",
-    "dev": "nodemon  --exec babel-node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FloatingHero/Contact-App.git"
-  },
-  "author": "FloatingHero",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FloatingHero/Contact-App/issues"
-  },
-  "homepage": "https://github.com/FloatingHero/Contact-App#readme"
+	"name": "contact-app",
+	"version": "1.0.0",
+	"description": "app where u can store your favourites app",
+	"main": "index.js",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"connect-flash": "^0.1.1",
+		"cookie-parser": "^1.4.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-handlebars": "^5.3.3",
+		"express-mysql-session": "^2.1.6",
+		"express-session": "^1.17.2",
+		"express-validator": "^6.12.1",
+		"mysql": "^2.18.1",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"serve-favicon": "^2.5.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.15.0",
+		"@babel/node": "^7.14.9",
+		"@babel/preset-env": "^7.15.0",
+		"@babel/register": "^7.15.3",
+		"eslint": "^7.32.0",
+		"faker": "^5.5.3",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.12",
+		"supertest": "^6.1.6"
+	},
+	"scripts": {
+		"start": "babel-node src/index.js",
+		"dev": "nodemon  --exec babel-node src/index.js",
+		"test": "jest --detectOpenHandles"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FloatingHero/Contact-App.git"
+	},
+	"author": "FloatingHero",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/FloatingHero/Contact-App/issues"
+	},
+	"homepage": "https://github.com/FloatingHero/Contact-App#readme"
 }

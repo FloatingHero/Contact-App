@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import RegisterController from '../controllers/RegisterController';
 import registerSchema from '../validations/register_validations';
-import loginSchema from '../validations/login_validations.js';
+import loginSchema from '../validations/login_validations';
 import initPassport from '../lib/passport';
 import AuthController from '../controllers/AuthController';
 

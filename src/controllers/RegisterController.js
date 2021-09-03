@@ -1,7 +1,6 @@
 import Hash from '../lib/bcrypt';
 import pool from '../database/db';
-import { validationResult } from 'express-validator';
-import initPassport from '../lib/passport';
+import {validationResult} from 'express-validator';
 
 
 class RegisterController {
@@ -12,7 +11,7 @@ class RegisterController {
 		});
 	}
 
-	register(req, res, next) {
+	register(req, res) {
 
 		const errors = validationResult(req);
 
@@ -35,19 +34,11 @@ class RegisterController {
 					pool.query(sql, [req.body.username, req.body.email, Hash.encryptPass(req.body.password)],
 						(err) => {
 							if (err) {
-								console.error(err);
-							} else {
-								initPassport();
+								throw err;
 							}
 						});
 
-					req.login([req.body.email, req.body.password], (err) => {
-						if (err) {
-							return next(err);
-						} else {
-							res.redirect('/perfil');
-						}
-					});
+					return res.sendStatus(200);
 
 				}
 			});

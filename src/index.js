@@ -17,7 +17,7 @@ const app = express();
 dotenv.config();
 
 //*settings
-app.set('port', process.env.APP_PORT);
+app.set('port', process.env.APP_PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',
 	hbs({
@@ -79,3 +79,5 @@ app.use(authenticationRoutes);
 app.listen(app.get('port'), () => {
 	console.log(`Servidor en marcha en el puerto ${app.get('port')}`);
 });
+
+export default app;
