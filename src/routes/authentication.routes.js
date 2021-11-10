@@ -18,7 +18,6 @@ router.get('/editar-contacto/:contact', (req, res) => {
 			throw err;
 		}
 
-
 		res.render('edit_contact', {
 			title: 'Edición de contacto',
 			contact: result[0]

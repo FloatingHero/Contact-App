@@ -38,7 +38,7 @@ class RegisterController {
 							}
 						});
 
-					return res.sendStatus(200);
+					return res.redirect(201, '/formulario-login');
 
 				}
 			});
