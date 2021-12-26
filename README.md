@@ -1,3 +1,9 @@
 # Contact-App
 
-## Archivo SQL en el directorio database. Para visualizar en el navegador hacer primero npm install.
+## Setup steps:
+
+# 1. npm install
+
+# 2. Import SQL file into your local database (SQL file in database/)
+
+## Archivo SQL en el directorio database.
